@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class SquadController : MonoBehaviour 
@@ -10,10 +10,10 @@ public class SquadController : MonoBehaviour
 	}
 
 	[SerializeField]
-	Squad _selectedSquad;
+	BaseSquad _selectedSquad;
 
 	[SerializeField]
-	Squad _lastTouchedSquad;
+	BaseSquad _lastTouchedSquad;
 
 	RayToSquad _rayToSquad;
 	RayToposition _rayToPosition;
@@ -45,7 +45,7 @@ public class SquadController : MonoBehaviour
 	{
 		if(Input.GetMouseButtonDown(0))
 		{
-			Squad temp = _rayToSquad.FindSquadFromTouchedGameObject();
+			BaseSquad temp = _rayToSquad.FindSquadFromTouchedGameObject();
 			if(temp !=null)
 			{
 				_selectedSquad = temp;
@@ -59,7 +59,7 @@ public class SquadController : MonoBehaviour
 	{
 		if(Input.GetMouseButtonDown(0))
 		{
-			Squad temp = _rayToSquad.FindSquadFromTouchedGameObject();
+			BaseSquad temp = _rayToSquad.FindSquadFromTouchedGameObject();
 			if(temp !=null)
 			{
 				if(temp == _selectedSquad)

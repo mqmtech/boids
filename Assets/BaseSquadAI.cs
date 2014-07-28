@@ -1,16 +1,16 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(Squad), typeof(BaseBtBuilder))]
+[RequireComponent(typeof(BaseSquad), typeof(BaseBtBuilder))]
 public class BaseSquadAI : MonoBehaviour 
 {
-	Squad _squad;
+	BaseSquad _squad;
 	BaseBtBuilder _builder;
 	BehaviorTree _bt;
 
 	void Awake()
 	{
-		_squad = GetComponent<Squad>();
+		_squad = GetComponent<BaseSquad>();
 		_builder = GetComponent<BaseBtBuilder>();
 
 		_builder.CreateBehaviorTree();

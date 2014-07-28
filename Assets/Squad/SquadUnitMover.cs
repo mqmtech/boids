@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(SquadUnit))]
-public class SquadUnitMover : MonoBehaviour 
+[RequireComponent(typeof(BaseSquadUnit))]
+public class SquadUnitMover : BaseSquadUnitMover 
 {
 	enum State
 	{
@@ -18,17 +18,17 @@ public class SquadUnitMover : MonoBehaviour
 	float stopDistanceSQ;
 
 	State _state;
-	SquadUnit _unit;
+	BaseSquadUnit _unit;
 	Vector3 _targetPos;
 
 	void Awake()
 	{
 		stopDistanceSQ = stopDistance * stopDistance;
 
-		_unit = GetComponent<SquadUnit>();
+		_unit = GetComponent<BaseSquadUnit>();
 	}
 
-	public void MoveTo(Vector3 worldPos)
+	public virtual void MoveTo(Vector3 worldPos)
 	{
 		_targetPos = worldPos;
 		

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 
 public class SquadUnitBuilder : MonoBehaviour
@@ -12,12 +12,12 @@ public class SquadUnitBuilder : MonoBehaviour
 	[SerializeField]
 	Vector2 _unitPositionOffset = new Vector3(2f, 2f);
 
-	public List<SquadUnit> CreateUnits(int numUnits, Squad squad)
+	public List<BaseSquadUnit> CreateUnits(int numUnits, BaseSquad squad)
 	{
 		GameObject goUnits = new GameObject("Units");
 		goUnits.transform.parent = squad.transform;
 
-		List<SquadUnit> units = new List<SquadUnit>();
+		List<BaseSquadUnit> units = new List<BaseSquadUnit>();
 		for (int i = 0; i < numUnits; ++i) 
 		{
 			Vector3 unitPosition = ToUnitWorldPosition(i, squad.transform.position);
@@ -25,7 +25,7 @@ public class SquadUnitBuilder : MonoBehaviour
 			GameObject goUnit = GameObject.Instantiate(_unitPrefab, unitPosition, Quaternion.identity) as GameObject;
 			goUnit.transform.parent = goUnits.transform;
 			
-			SquadUnit unit = goUnit.GetComponent<SquadUnit>();
+			BaseSquadUnit unit = goUnit.GetComponent<BaseSquadUnit>();
 			DebugUtils.Assert(unit!=null, "unit!=null");
 			
 			unit.Init(squad);

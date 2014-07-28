@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class CheckIsMouseButtonDown : Behavior
 {
@@ -35,7 +35,7 @@ public class CheckIsSquadTouched : Behavior
 
 	public override Status Update()
 	{
-		Squad temp = _rayToSquad.FindSquadFromTouchedGameObject();
+		BaseSquad temp = _rayToSquad.FindSquadFromTouchedGameObject();
 
 		_status = temp != null ? Status.SUCCESS : Status.FAILURE;
 		return _status;
@@ -55,10 +55,10 @@ public class SaveSquad : Behavior
 	
 	public override Status Update()
 	{
-		Squad temp = _rayToSquad.FindSquadFromTouchedGameObject();
+		BaseSquad temp = _rayToSquad.FindSquadFromTouchedGameObject();
 		if(temp !=null)
 		{
-			_bt.SetMemoryObject<Squad>(_varName, temp);
+			_bt.SetMemoryObject<BaseSquad>(_varName, temp);
 
 			return Status.SUCCESS;
 		}
@@ -103,7 +103,7 @@ public class MoveSquadToTarget : Behavior
 	bool _isOk;
 
 	Vector3 _targetWorldPos;
-	Squad _squad;
+	BaseSquad _squad;
 
 	Timer _timerToStop = new Timer();
 	
@@ -117,7 +117,7 @@ public class MoveSquadToTarget : Behavior
 	{
 		base.OnInitialize ();
 
-		_isOk = _bt.GetMemoryObject<Squad>(_squadVarName, out _squad);
+		_isOk = _bt.GetMemoryObject<BaseSquad>(_squadVarName, out _squad);
 		
 		Vector3 _targetWorldPos = Vector3.zero;
 		_isOk &= _bt.GetMemoryObject<Vector3>(_targetVarName, out _targetWorldPos);

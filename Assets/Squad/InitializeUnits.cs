@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class InitializeUnits : MonoBehaviour 
@@ -27,7 +27,7 @@ public class InitializeUnits : MonoBehaviour
 	IEnumerator CreateUnits()
 	{
 		yield return new WaitForSeconds(1f);
-		Squad squad = _squadManager.CreateSquad(_squadName);
+		BaseSquad squad = _squadManager.CreateSquad(_squadName);
 		squad.CreateUnits(_numUnits);
 		squad.transform.parent = transform;
 	}

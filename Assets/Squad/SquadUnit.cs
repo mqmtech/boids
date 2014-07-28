@@ -1,24 +1,27 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(SquadUnitMover))]
-public class SquadUnit : MonoBehaviour 
+public class SquadUnit : BaseSquadUnit
 {
-	public Squad Squad { get; protected set; }
+	public override BaseSquad Squad { get; protected set; }
 
-	private SquadUnitMover _squadUnitMover;
+	protected BaseSquadUnitMover SquadUnitMover
+	{
+		get; set;
+	}
 
 	void Awake()
 	{
-		_squadUnitMover = GetComponent<SquadUnitMover>();
+		SquadUnitMover = GetComponent<BaseSquadUnitMover>();
 	}
 
-	public void Init(Squad iSquad)
+	public override void Init(BaseSquad iSquad)
 	{
 		Squad = iSquad;
 	}
 
-	public void MoveTo(Vector3 worldPos)
+	public override void MoveTo(Vector3 worldPos)
 	{
-		_squadUnitMover.MoveTo(worldPos);
+		SquadUnitMover.MoveTo(worldPos);
 	}
 }

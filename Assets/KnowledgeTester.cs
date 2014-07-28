@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(Squad))]
+[RequireComponent(typeof(BaseSquad))]
 public class KnowledgeTester : MonoBehaviour
 {
 	public enum KnowledgeType
@@ -18,12 +18,12 @@ public class KnowledgeTester : MonoBehaviour
 
 	BaseKnowledge _knowledge;
 
-	Squad _squad;
+	BaseSquad _squad;
 	BaseSquadAI _squadAI;
 
 	void Awake()
 	{
-		_squad = GetComponent<Squad>();
+		_squad = GetComponent<BaseSquad>();
 	}
 
 	void Update()

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class RayToposition
 {
@@ -6,7 +6,7 @@ public class RayToposition
 
 	public bool GetPosFromTouchedGameObject(ref Vector3 oWorldPos)
 	{
-		Squad squad = null;
+		BaseSquad squad = null;
 
 		Ray ray = RayUtils.GetRayFromTouch();
 		

@@ -1,12 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class RayToSquad
 {
 	const float kHitMaxDistance = 99999f;
 
-	public Squad FindSquadFromTouchedGameObject()
+	public BaseSquad FindSquadFromTouchedGameObject()
 	{
-		Squad squad = null;
+		BaseSquad squad = null;
 
 		Ray ray = RayUtils.GetRayFromTouch();
 		
@@ -16,7 +16,7 @@ public class RayToSquad
 		if(isHit)
 		{
 			Debug.Log("Hit: " + hit.collider.gameObject.name);
-			SquadUnit unit = hit.collider.gameObject.FindObjectOfTypeRecursiveDown<SquadUnit>();
+			BaseSquadUnit unit = hit.collider.gameObject.FindObjectOfTypeRecursiveDown<BaseSquadUnit>();
 			if(unit != null)
 			{
 				return unit.Squad;
